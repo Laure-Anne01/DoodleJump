@@ -35,13 +35,18 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 
 //temporaire
-function drawPaddle() {
-    ctx.beginPath();
-    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
-    ctx.fill();
-    ctx.closePath();
-}
+// drawPaddle() {
+  //  ctx.beginPath();
+   // ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+   // ctx.fillStyle = "#0095DD";
+  //  ctx.fill();
+ //   ctx.closePath();
+image=perso.png
+
+void ctx.drawImage(image, dx, dy);
+void ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
+void ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
+
 //image du perso
 let img = new Image();   // Crée un nouvel élément img
 img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
@@ -53,6 +58,8 @@ function keyDownHandler(e) {
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = true;
+    else if(e.key == "Height" || e.key == "ArrowHeight") {
+        heightPressed = true
     }
 }
 
@@ -63,6 +70,7 @@ function keyUpHandler(e) {
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
+    else if(e.key == "Height" || e.key == "HeightLeft") {
 }
 
 
@@ -82,6 +90,8 @@ function draw() {
     
     x += dx;
     y += dy;
+	
+	ctx.drawImage(img,x,y);
 }
 
 setInterval(draw, 10);
