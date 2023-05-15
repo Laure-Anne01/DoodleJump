@@ -100,3 +100,9 @@ setInterval(draw, 10);
 
 </body>
 </html>
+
+
+case "ArrowDown":
+			dx=0;
+			dy=2;
+			break;	
