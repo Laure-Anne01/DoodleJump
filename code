@@ -6,6 +6,8 @@
     <style>
       * { padding: 0; margin: 0; }
       canvas { background: #eee; display: block; margin: 0 auto; }
+	  canvas { border: solid 2px black ; }
+	  
     </style>
 </head>
 <body>
@@ -18,9 +20,9 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
-var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+var y = canvas.height-40;
+var dx = 0;
+var dy = 0;
 //dimmension du perso
 var paddleHeight = 30;
 var paddleWidth = 75;
@@ -41,12 +43,12 @@ document.addEventListener("keyup", keyUpHandler, false);
    // ctx.fillStyle = "#0095DD";
   //  ctx.fill();
  //   ctx.closePath();
-image=perso.png
-
-void ctx.drawImage(image, dx, dy);
-void ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
-void ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
-
+//image=perso.png
+/*
+ctx.drawImage(image, dx, dy);
+ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
+ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
+*/
 //image du perso
 let img = new Image();   // Crée un nouvel élément img
 img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
@@ -56,53 +58,96 @@ function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
-    else if(e.key == "Height" || e.key == "ArrowHeight") {
+    else {
+		if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;}
+		else {if(e.key == "Height" || e.key == "ArrowHeight") {
         heightPressed = true
-    }
-}
+		}
+		}	
+	}
+}	
+
+function touche(e){
+	switch  (e.key){
+		case "ArrowRight":
+			dx=2;
+			dy=0;
+			break;	
+		case "ArrowLeft":
+			dx=-2;
+			dy=0;
+			break;	
+		case "ArrowDown":
+			dx=0;
+			dy=2;
+			break;	
+		case "ArrowUp":
+			dx=0;
+			dy=-2;
+			break;
+	}
+	
+}	
 
 function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = false;
     }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
+    else {if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
-    else if(e.key == "Height" || e.key == "HeightLeft") {
+    else {if(e.key == "Height" || e.key == "HeightLeft") {
+	}
+	}
 }
-
-
+}
 //mouv du perso
 
 //tempo
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawPaddle();
+    //drawPaddle();
     
-    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+    /*if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
     }
     else if(leftPressed && paddleX > 0) {
         paddleX -= 7;
     }
-    
+    */
+	//x=canvas.width- canvas.width, 
+	
+	if (dx + paddle.width = 0 ) {
+	    dx = canvas.width-paddle.width;
+	}
+    else {if( dx + paddle.width = canvas.width) {
+        dx = 0 + paddle.width;
+	}
+}
+   //if (dx + paddle.Width < -canvas.width / 2) {
+    //dx = canvas.width-paddle.Width; }
+   //else if (dx > canvas.width) {
+   // dx = -canvas.width;
+   
+	//if (x>canvas.width - paddleWidth ){dx=dx-canvas.width + paddleWidth;}
+	//if (x<-canvas.width - paddleWidth){dx=dx+canvas.width + paddleWidth;}
+	
     x += dx;
     y += dy;
 	
 	ctx.drawImage(img,x,y);
 }
 
+
+document.addEventListener('keydown',touche)
+
 setInterval(draw, 10);
+
+
+
 
 </script>
 
 </body>
 </html>
-
-
-case "ArrowDown":
-			dx=0;
-			dy=2;
-			break;	
