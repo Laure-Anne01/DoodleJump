@@ -35,15 +35,11 @@ var leftPressed = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
+//constante pour les plateformes
+const platformWidth = 65;
+const platformHeight = 20;
+const platformStart = canvas.height - 50;
 
-//temporaire
-// drawPaddle() {
-  //  ctx.beginPath();
-   // ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-   // ctx.fillStyle = "#0095DD";
-  //  ctx.fill();
- //   ctx.closePath();
-//image=perso.png
 /*
 ctx.drawImage(image, dx, dy);
 ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
@@ -78,14 +74,6 @@ function touche(e){
 			dx=-2;
 			dy=0;
 			break;	
-		case "ArrowDown":
-			dx=0;
-			dy=2;
-			break;	
-		case "ArrowUp":
-			dx=0;
-			dy=-2;
-			break;
 	}
 	
 }	
@@ -97,9 +85,6 @@ function keyUpHandler(e) {
     else {if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
-    else {if(e.key == "Height" || e.key == "HeightLeft") {
-	}
-	}
 }
 }
 //mouv du perso
@@ -107,31 +92,16 @@ function keyUpHandler(e) {
 //tempo
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //drawPaddle();
-    
-    /*if(rightPressed && paddleX < canvas.width-paddleWidth) {
-        paddleX += 7;
-    }
-    else if(leftPressed && paddleX > 0) {
-        paddleX -= 7;
-    }
-    */
-	//x=canvas.width- canvas.width, 
 	
-	if (dx + paddle.width = 0 ) {
-	    dx = canvas.width-paddle.width;
-	}
-    else {if( dx + paddle.width = canvas.width) {
-        dx = 0 + paddle.width;
-	}
-}
+
    //if (dx + paddle.Width < -canvas.width / 2) {
     //dx = canvas.width-paddle.Width; }
    //else if (dx > canvas.width) {
    // dx = -canvas.width;
    
-	//if (x>canvas.width - paddleWidth ){dx=dx-canvas.width + paddleWidth;}
-	//if (x<-canvas.width - paddleWidth){dx=dx+canvas.width + paddleWidth;}
+    //si il est tout à gauche, il se tp à droite et inversement   
+	if (x>canvas.width - paddleWidth ){dx=canvas.width - canvas.width;}
+	if (x<-canvas.width - paddleWidth){dx=canvas.width - paddleWidth;}
 	
     x += dx;
     y += dy;
@@ -140,10 +110,41 @@ function draw() {
 }
 
 
+
 document.addEventListener('keydown',touche)
 
 setInterval(draw, 10);
 
+
+// choisi un nombre random entre le min (inclu) et le max (exclu)
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// fill the initial screen with platforms
+let y = platformStart;
+while (y > 0) {
+  // the next platform can be placed above the previous one with a space
+  // somewhere between the min and max space
+  y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+
+  // a platform can be placed anywhere 25px from the left edge of the canvas
+  // and 25px from the right edge of the canvas (taking into account platform
+  // width).
+  // however the first few platforms cannot be placed in the center so
+  // that the player will bounce up and down without going up the screen
+  // until they are ready to move
+  let x;
+  do {
+    x = random(25, canvas.width - 25 - platformWidth);
+  } while (
+    y > canvas.height / 2 &&
+    x > canvas.width / 2 - platformWidth * 1.5 &&
+    x < canvas.width / 2 + platformWidth / 2
+  );
+
+  platforms.push({ x, y });
+}
 
 
 
