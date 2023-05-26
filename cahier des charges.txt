@@ -1,0 +1,8 @@
+Cahier des charges du doodle jump :
+
+-avoir le personnage
+-des plateformes qui se génère automatiquement
+-afficher des images pour les plateformes et le personnage
+-le personnage peut aller tout à gauche pour aller tout aà droite(et inversement)
+-le personnage peut aller à gauche et à droite avec les flèches et saute en continue
+-afficher un message de mort
