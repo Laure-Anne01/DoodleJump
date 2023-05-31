@@ -5,13 +5,14 @@
     <title>Gamedev Canvas Workshop</title>
     <style>
       * { padding: 0; margin: 0; }
-      canvas { background: #eee; display: block; margin: 0 auto; }
+      canvas { background: #00BFFF; display: block; margin: 0 auto; }
 	  canvas { border: solid 2px black ; }
 	  
     </style>
 </head>
 <body>
 
+<img src="code/doodle/perso.jpg" width=30%/>
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
@@ -30,6 +31,8 @@ var paddleX = (canvas.width-paddleWidth)/2;
 //etat des touche (droite et gauche)
 var rightPressed = false;
 var leftPressed = false;
+//image
+var imagejavascript = document.createElement("perso.jpg")
 
 //averti le changement d'étatt des touches
 document.addEventListener("keydown", keyDownHandler, false);
@@ -111,7 +114,7 @@ function draw() {
 
 
 
-document.addEventListener('keydown',touche)
+document.addEventListener('keydown',touche);
 
 setInterval(draw, 10);
 
@@ -122,11 +125,11 @@ function random(min, max) {
 }
 
 // fill the initial screen with platforms
-let y = platformStart;
-while (y > 0) {
+let yp = platformStart;
+while (yp > 0) {
   // the next platform can be placed above the previous one with a space
   // somewhere between the min and max space
-  y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+  yp -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
 
   // a platform can be placed anywhere 25px from the left edge of the canvas
   // and 25px from the right edge of the canvas (taking into account platform
@@ -138,12 +141,12 @@ while (y > 0) {
   do {
     x = random(25, canvas.width - 25 - platformWidth);
   } while (
-    y > canvas.height / 2 &&
+    yp > canvas.height / 2 &&
     x > canvas.width / 2 - platformWidth * 1.5 &&
     x < canvas.width / 2 + platformWidth / 2
   );
 
-  platforms.push({ x, y });
+  platforms.push({ x, yp });
 }
 
 
