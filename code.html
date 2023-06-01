@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<img src="perso.jpg" width=1% height=30% alt='nez en trompette'/>
+
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
@@ -49,12 +49,10 @@ ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
 ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
 */
 //image du perso
-var img = new Image() {   // Crée un nouvel élément img
+var img = new Image();   // Crée un nouvel élément img
 //img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
-	this.img.src='perso.jpg';
-        this.width = 1%;
-        this.height = 30%;
-}
+img.src='perso.jpg';
+	
 //change l'état des touches
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -112,7 +110,7 @@ function draw() {
     x += dx;
     y += dy;
 	
-	ctx.drawImage(img, this.width, this.height);
+	ctx.drawImage(img, width, height);
 }
 
 
