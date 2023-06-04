@@ -56,7 +56,7 @@ var platforms = [{
 function createperso() {
 	imagejavascript.appendChild('perso.jpg');
 }
-<img src="perso.jpg" width=30%/>
+<img src="code/doodle/perso.jpg" width=30%/>
 /*
 ctx.drawImage(image, dx, dy);
 ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
@@ -121,6 +121,7 @@ function draw() {
     //si il est tout à gauche, il se tp à droite et inversement   
 	if (x>canvas.width - paddleWidth ){dx=canvas.width - canvas.width;}
 	if (x<-canvas.width - paddleWidth){dx=canvas.width - paddleWidth;}
+	
 	
     x += dx;
     y += dy;
