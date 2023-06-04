@@ -32,7 +32,7 @@ var rightPressed = false;
 var leftPressed = false;
 //image
 var imagejavascript = document.createElement("perso.jpg")
-<img src="perso.jpg" width=30%/>
+//<img src="perso.jpg" width=30%/>
 	
 //averti le changement d'étatt des touches
 document.addEventListener("keydown", keyDownHandler, false);
@@ -50,8 +50,7 @@ ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
 */
 //image du perso
 let img = new Image();   // Crée un nouvel élément img
-img.src = 
-'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
 
 //change l'état des touches
 function keyDownHandler(e) {
