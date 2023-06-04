@@ -63,7 +63,10 @@ ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
 */
 //image du perso
 let img = new Image();   // Crée un nouvel élément img
-img.src = 'DoodleJump/perso.jpg' 
+img.addEventListener('load', function() {
+  //  exécute les instructions drawImage ici
+}, false);
+img.src = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Ddoodle%2BJump&psig=AOvVaw1C0FDiVT2fkRyAiYUJk4CO&ust=1686001767078000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKj_x5fMqv8CFQAAAAAdAAAAABAE';
 	
 //data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
 	
