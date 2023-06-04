@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Doodlejump by Laure-An</title>
+    <title>Doodlejump by Laure-Anne</title>
     <style>
       * { padding: 0; margin: 0; }
       canvas { background: #00BFFF; display: block; margin: 0 auto; }
@@ -13,7 +13,6 @@
 <body>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
-<img src="perso.jpg" width=1% height=30% alt='nez en trompette'/>
 
 <script>
 
@@ -32,7 +31,7 @@ var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
 //image
-//var imagejavascript = document.createElement("perso.jpg")
+var imagejavascript = document.createElement("perso.jpg")
 
 //averti le changement d'étatt des touches
 document.addEventListener("keydown", keyDownHandler, false);
