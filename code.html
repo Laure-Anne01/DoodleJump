@@ -40,10 +40,17 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
 //constante pour les plateformes
-const PlatformeSpace = 30;
 const platformWidth = 65;
 const platformHeight = 20;
 const platformStart = canvas.height - 50;
+// minimum and maximum vertical space between each platform
+const minPlatformSpace = 15;
+const maxPlatformSpace = 20;
+//pour la première plateforme
+var platforms = [{
+  x: canvas.width / 2 - platformWidth / 2,
+  y: platformStart
+}];
 
 /*
 ctx.drawImage(image, dx, dy);
