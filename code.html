@@ -32,6 +32,7 @@ var rightPressed = false;
 var leftPressed = false;
 //image
 var imagejavascript = document.createElement("perso.jpg")
+document.body.appendChild("perso.jpg");
 
 //averti le changement d'étatt des touches
 document.addEventListener("keydown", keyDownHandler, false);
@@ -48,7 +49,7 @@ ctx.drawImage(image, dx, dy, dLargeur, dHauteur);
 ctx.drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur);
 */
 //image du perso
-//let img = new Image();   // Crée un nouvel élément img
+let img = new Image();   // Crée un nouvel élément img
 img.src = 'DoodleJump/perso.jpg' 
 	
 //data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
